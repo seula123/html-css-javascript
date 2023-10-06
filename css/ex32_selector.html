@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        input[type=text] {
+            display: block;
+            margin-bottom: 3px;
+            border: 1px solid #555;
+            background-color: #FFF;
+            padding: 3px;
+            outline: none;
+            color: #333;
+        }
+
+        /*
+        세트 1 
+        input[type=text]:required { 필수값
+            background-color: gold;
+            border-color: red;
+        }
+
+        input[type=text]:optional { 선택값
+            background-color: #ccc;
+        }
+        */
+
+        /*
+        세트 2
+        input[type=text]:disabled {
+            background-color: #999;
+        }
+        
+        input[type=text]:enabled {
+            background-color: gold;
+        }
+        */
+
+        /* 
+        세트3
+        input[type=text]:read-only {
+            background-color: skyblue;
+        }
+        
+        input[type=text]:read-write {
+            background-color: paleturquoise;
+        }
+        */
+
+        /* input[type=text]:read-only {
+           cursor: not-allowed;
+        } */
+
+        /* input[type=text]:read-only:hover {
+           cursor: not-allowed;
+           background-color: rgba(255, 0, 0, .3);
+        } */
+
+        /* body {
+            커서를 사용할 때 아래와 같이 짜면 오해할 수 있으니 주의해야함
+            cursor: progress;
+        } */
+
+
+        /* 체크박스, 라디오버튼, 셀렉트박스 > CSS 적용이 잘 안됨(테두리 색상, 배경색 등) 보통 디자인 바꾸지 않고 그냥 씀*/
+        /* .cb {
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+            background-color: plum;
+        } */
+
+        .cb {
+            /* 불투명도(0 ~ 1) */
+            opacity: .2;
+        }
+
+        /* 평상시엔 흐릿하다가 체크하면 선명하고 커지게 만들기 */
+        .cb:checked {
+            opacity: 1;
+            width: 15px;
+            height: 15px;
+        }
+
+        #cat {
+            /* visibility: hidden; */
+            /* border: 10px solid gold; */
+        }
+        
+        #cd-cat:checked + #cat {
+            /* visibility: visible; */
+            /* border-color: red; */
+            width: 300px;
+            position: relative;
+            left: 300px;
+            top: 100px;
+        }
+
+        #cb2 + div {
+            /* visibility: hidden; */
+            display: none;
+        }
+
+        #cb2:checked + div {
+            display: block;
+        }
+
+        #item {
+            border: 1px solid black;
+            width: 200px;
+        }
+        
+        #item #cb3 {
+            display: none;
+        }
+
+        #item label {
+            font-size: 1.5rem;
+            font-family: Arial;
+            font-variant: small-caps;
+            display: block;
+            padding: 10px;
+            background-color: cadetblue;
+            color: white;
+            cursor: pointer;
+        }
+
+        #item div {
+            padding: 15px;
+            border-top: 1px solid black;
+            display: none;
+        }
+        
+        /* #item #cb3:checked + label + div */
+        #item #cb3:checked ~ label {
+            background-color: mediumseagreen;
+        }
+
+        #item #cb3:checked ~ div {
+            display: block;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- ex32_selector.html -->
+
+    <div id="list">
+        <input type="text" value="1" required>
+        <input type="text" value="2" readonly>
+        <input type="text" value="3" readonly>
+        <input type="text" value="4">
+        <input type="text" value="5" required>
+        <input type="text" value="6" disabled>
+        <input type="text" value="7" >
+        <input type="text" value="8" disabled>
+        <input type="text" value="9">
+        <input type="text" value="10" required>
+    </div>
+
+    <hr>
+    <input type="button" value="버튼">
+
+    <hr>
+
+    <div>
+        <input type="checkbox" class="cb">
+        <input type="checkbox" class="cb">
+        <input type="checkbox" class="cb">
+    </div>
+    
+    <hr>
+    <input type="checkbox" id="cd-cat">
+    <img src="../asset/images/catty08.png" id="cat">
+    <div>
+
+    <hr>
+        <label for="cb2">제목</label>
+        <input type="checkbox" id="cb2">
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur similique perspiciatis reiciendis enim. Dolor dolorum ad sequi sit? Accusamus repellendus doloribus pariatur laborum. Magnam qui saepe corrupti perspiciatis similique nisi.</div>
+        
+    <hr>
+    
+    <details>
+        <summary>제목</summary>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptates quis maiores consectetur qui, impedit alias obcaecati architecto possimus aliquid! Aspernatur, maxime incidunt. Corrupti quis quo adipisci ipsum officiis sequi!</p>
+    </details>
+
+    <hr>
+
+    <div id="item">
+        <input type="checkbox"  id="cb3">
+        <label for="cb3">Java</label>
+        <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, voluptatibus? Eos laudantium unde sit illum voluptatum consequuntur, aspernatur asperiores atque nihil id corporis officia ex eligendi repellendus at? Laborum, aliquid?</div>
+    </div>
+
+    </div>
+</body>
+</html>
